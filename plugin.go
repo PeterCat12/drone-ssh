@@ -64,6 +64,10 @@ func (p Plugin) Exec() error {
 		return fmt.Errorf(missingPasswordOrKey)
 	}
 
+	fmt.Println("hello world")
+	fmt.Printf("%+v\n", p.Config)
+
+
 	wg.Add(len(p.Config.Host))
 	errChannel := make(chan error, 1)
 	finished := make(chan bool, 1)
