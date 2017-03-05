@@ -64,8 +64,15 @@ func (p Plugin) Exec() error {
 		return fmt.Errorf(missingPasswordOrKey)
 	}
 
-	fmt.Println("hello world")
+	fmt.Println("Hello World")
+	fmt.Println("new stuff")
 	fmt.Printf("%+v\n", p.Config)
+	b, err :=json.Marshall(p.Config)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(string(b))
 
 
 	wg.Add(len(p.Config.Host))
